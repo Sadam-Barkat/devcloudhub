@@ -5,7 +5,7 @@ import { siteConfig } from "@/data/siteConfig";
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center section-padding overflow-hidden">
+    <section id="top" className="relative min-h-screen flex items-center section-padding overflow-hidden">
       {/* Background effects */}
       <div className="absolute inset-0 bg-hero-gradient" />
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
@@ -99,9 +99,6 @@ const HeroSection = () => {
               {/* Glow effect behind image */}
               <div className="absolute inset-0 bg-gradient-radial from-primary/30 to-transparent blur-3xl scale-150" />
               
-              {/* Decorative ring */}
-              <div className="absolute inset-0 border-2 border-primary/20 rounded-full scale-110 animate-spin-slow" />
-              
               {/* Profile image container */}
               <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-primary/30 glow">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20" />
@@ -120,18 +117,18 @@ const HeroSection = () => {
                 initial={{ opacity: 0, scale: 0 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.8, duration: 0.5 }}
-                className="absolute -top-4 -right-4 glass-card px-4 py-2 animate-float"
+                className="absolute z-20 top-0 right-0 translate-x-1/2 -translate-y-1/2 glass-card px-3 py-1.5 sm:px-4 sm:py-2 animate-float"
               >
-                <span className="text-sm font-semibold text-primary">35+ Projects</span>
+                <span className="text-xs sm:text-sm font-semibold text-primary">35+ Projects</span>
               </motion.div>
               
               <motion.div
                 initial={{ opacity: 0, scale: 0 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 1, duration: 0.5 }}
-                className="absolute -bottom-4 -left-4 glass-card px-4 py-2 animate-float animation-delay-300"
+                className="absolute z-20 bottom-0 left-0 -translate-x-1/2 translate-y-1/2 glass-card px-3 py-1.5 sm:px-4 sm:py-2 animate-float animation-delay-300"
               >
-                <span className="text-sm font-semibold text-primary">⭐ 5-Star Rated</span>
+                <span className="text-xs sm:text-sm font-semibold text-primary">⭐ 5-Star Rated</span>
               </motion.div>
             </div>
           </motion.div>

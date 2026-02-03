@@ -17,6 +17,39 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
+  const scrollToHash = (href: string) => {
+    if (!href.startsWith("#")) return;
+    const id = href.slice(1);
+    const element = document.getElementById(id);
+    if (!element) return;
+
+    window.history.replaceState(null, "", href);
+    element.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
+  const handleNavClick = (event: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (!href.startsWith("#")) return;
+
+    event.preventDefault();
+
+    const wasOpen = isOpen;
+    setIsOpen(false);
+
+    // Let the mobile close animation finish first so the user sees the page.
+    const delay = wasOpen ? 320 : 0;
+    window.setTimeout(() => scrollToHash(href), delay);
+  };
+
+  const handleLogoClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    event.preventDefault();
+    const wasOpen = isOpen;
+    setIsOpen(false);
+    const delay = wasOpen ? 320 : 0;
+    window.setTimeout(() => {
+      scrollToHash("#top");
+    }, delay);
+  };
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
@@ -24,6 +57,19 @@ const Navbar = () => {
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const handleHash = () => {
+      const hash = window.location.hash;
+      if (!hash) return;
+      // Small delay so layout is ready (fonts/images) before measuring.
+      window.setTimeout(() => scrollToHash(hash), 0);
+    };
+
+    handleHash();
+    window.addEventListener("hashchange", handleHash);
+    return () => window.removeEventListener("hashchange", handleHash);
   }, []);
 
   return (
@@ -40,7 +86,7 @@ const Navbar = () => {
       <div className="container-custom">
         <div className="flex items-center justify-between h-16 sm:h-20">
           {/* Logo */}
-          <a href="#" className="text-xl sm:text-2xl font-bold gradient-text">
+          <a href="#top" onClick={handleLogoClick} className="text-xl sm:text-2xl font-bold gradient-text">
             {siteConfig.name}
           </a>
 
@@ -50,6 +96,7 @@ const Navbar = () => {
               <a
                 key={link.name}
                 href={link.href}
+                onClick={(e) => handleNavClick(e, link.href)}
                 className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
               >
                 {link.name}
@@ -91,7 +138,7 @@ const Navbar = () => {
                 <a
                   key={link.name}
                   href={link.href}
-                  onClick={() => setIsOpen(false)}
+                  onClick={(e) => handleNavClick(e, link.href)}
                   className="block text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
                 >
                   {link.name}

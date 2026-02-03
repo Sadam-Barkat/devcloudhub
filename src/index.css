@@ -75,6 +75,11 @@
     scroll-behavior: smooth;
   }
 
+  /* Prevent anchored sections from hiding under the fixed navbar */
+  :where(section[id]) {
+    scroll-margin-top: 96px;
+  }
+
   body {
     @apply bg-background text-foreground antialiased;
     font-family: 'Inter', system-ui, -apple-system, sans-serif;

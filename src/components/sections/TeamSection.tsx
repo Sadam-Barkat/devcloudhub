@@ -11,25 +11,20 @@ const TeamSection = () => {
       transition={{ duration: 0.7, ease: "easeOut" }}
       viewport={{ once: true, amount: 0.2 }}
     >
-      <div className="absolute inset-0 bg-glow-gradient opacity-40" />
-      
       <div className="container-custom relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-10"
         >
           <span className="inline-block text-primary font-semibold text-sm uppercase tracking-wider mb-4">
-            The Team
+            Our Experts
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
-            Our <span className="gradient-text">Expert Team</span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold">
+            Meet The <span className="gradient-text">Team</span>
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            A dedicated team of specialists working together to deliver exceptional results
-          </p>
         </motion.div>
 
         {/* Orbit Animation Container */}
@@ -174,32 +169,6 @@ const TeamSection = () => {
           })}
         </div>
 
-        {/* Static Team Cards for Mobile */}
-        <div className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-3 lg:hidden">
-          {teamMembers.map((member, index) => (
-            <motion.div
-              key={`static-${member.id}`}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1, duration: 0.5 }}
-              viewport={{ once: true }}
-              className="glass-card team-card p-3 flex flex-col items-center gap-2 hover-lift"
-            >
-              <div className="w-16 h-16 rounded-full overflow-hidden border border-primary/20 bg-card/30">
-                <img
-                  src={member.imageSrc}
-                  alt={member.role}
-                  className="h-full w-full object-cover"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-              <span className="team-role text-[11px] font-medium text-center leading-tight">
-                {member.role}
-              </span>
-            </motion.div>
-          ))}
-        </div>
       </div>
 
       <style>{`
