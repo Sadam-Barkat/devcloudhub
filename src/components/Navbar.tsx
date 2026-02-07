@@ -81,13 +81,24 @@ const Navbar = () => {
         isScrolled
           ? "bg-background/80 backdrop-blur-xl border-b border-border/50"
           : "bg-transparent"
-      }`}
+      } overflow-visible`}
     >
       <div className="container-custom">
-        <div className="flex items-center justify-between h-16 sm:h-20">
+        <div className="flex items-center justify-between h-20 sm:h-24">
           {/* Logo */}
-          <a href="#top" onClick={handleLogoClick} className="text-xl sm:text-2xl font-bold gradient-text">
-            {siteConfig.name}
+          <a
+            href="#top"
+            onClick={handleLogoClick}
+            className="flex items-center gap-2 -my-6 sm:-my-8"
+            aria-label={`${siteConfig.name} home`}
+          >
+            <img
+              src="/logo/DEV-CLOUD-HUB-LOGO.png"
+              alt={`${siteConfig.name} logo`}
+              className="h-28 w-auto sm:h-32 lg:h-36"
+              loading="eager"
+              decoding="async"
+            />
           </a>
 
           {/* Desktop Navigation */}

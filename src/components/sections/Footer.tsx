@@ -14,7 +14,7 @@ const Footer = () => {
 
   return (
     <motion.footer
-      className="py-12 border-t border-border/50 relative"
+      className="py-4 sm:py-5 border-t border-border/50 relative overflow-visible"
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.7, ease: "easeOut" }}
@@ -28,12 +28,22 @@ const Footer = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="flex flex-col md:flex-row items-center justify-between gap-6"
+          className="flex flex-col md:flex-row items-center justify-between gap-3"
         >
           {/* Logo */}
-          <div className="text-2xl font-bold gradient-text">
-            {siteConfig.name}
-          </div>
+          <a
+            href="#top"
+            className="flex items-center -my-6 sm:-my-7"
+            aria-label={`${siteConfig.name} home`}
+          >
+            <img
+              src="/logo/DEV-CLOUD-HUB-LOGO.png"
+              alt={`${siteConfig.name} logo`}
+              className="h-32 w-auto sm:h-36"
+              loading="lazy"
+              decoding="async"
+            />
+          </a>
 
           {/* Social Icons */}
           <div className="flex gap-4">
@@ -43,7 +53,7 @@ const Footer = () => {
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-lg bg-card/50 flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all duration-300"
+                className="w-9 h-9 rounded-lg bg-card/50 flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all duration-300"
               >
                 <link.icon className="w-5 h-5" />
               </a>
