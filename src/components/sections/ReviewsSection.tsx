@@ -1,9 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Star, X, ExternalLink, Image as ImageIcon } from "lucide-react";
+import { Star, X, Image as ImageIcon } from "lucide-react";
 import { reviews, Review } from "@/data/reviews";
 import { Button } from "@/components/ui/button";
-import { siteConfig } from "@/data/siteConfig";
 
 const ReviewsSection = () => {
   const [selectedReview, setSelectedReview] = useState<Review | null>(null);
@@ -110,7 +109,7 @@ const ReviewsSection = () => {
                   <div className="mb-4 rounded-xl overflow-hidden border border-border/50 bg-card/30">
                     <img
                       src={review.screenshot}
-                      alt={`Fiverr review screenshot ${review.id}`}
+                      alt={`Client review screenshot ${review.id}`}
                       className="w-full h-[180px] object-contain bg-background/30"
                       loading="lazy"
                       decoding="async"
@@ -129,7 +128,7 @@ const ReviewsSection = () => {
                   </p>
                 ) : (
                   <p className="text-foreground/80 leading-relaxed mb-4 text-sm">
-                    Click to view the full Fiverr review screenshot.
+                    Click to view the full review screenshot.
                   </p>
                 )}
 
@@ -159,25 +158,6 @@ const ReviewsSection = () => {
           </div>
         </div>
 
-        {/* Fiverr CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 0.5 }}
-          viewport={{ once: true }}
-          className="mt-12 text-center"
-        >
-          <Button
-            asChild
-            variant="outline"
-            size="lg"
-            className="border-primary/50 text-foreground hover:bg-primary/10 hover:border-primary font-semibold"
-          >
-            <a href={siteConfig.links.fiverr} target="_blank" rel="noopener noreferrer">
-              View All Reviews on Fiverr
-            </a>
-          </Button>
-        </motion.div>
       </div>
 
       {/* Review Modal */}
@@ -227,7 +207,7 @@ const ReviewsSection = () => {
                 <div className="mb-6 rounded-2xl overflow-hidden border border-border/50 bg-card/30">
                   <img
                     src={selectedReview.screenshot}
-                    alt={`Fiverr review screenshot ${selectedReview.id}`}
+                    alt={`Client review screenshot ${selectedReview.id}`}
                     className="w-full max-h-[70vh] object-contain bg-background/30"
                     loading="eager"
                     decoding="async"
@@ -263,18 +243,6 @@ const ReviewsSection = () => {
                 ) : (
                   <div />
                 )}
-
-                <Button asChild className="bg-primary hover:bg-primary/90 text-primary-foreground">
-                  <a
-                    href={siteConfig.links.fiverr}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2"
-                  >
-                    <ExternalLink className="w-4 h-4" />
-                    View on Fiverr
-                  </a>
-                </Button>
               </div>
             </motion.div>
           </motion.div>

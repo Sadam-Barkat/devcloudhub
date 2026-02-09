@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { Star, CheckCircle, Globe, Users } from "lucide-react";
 import { siteConfig } from "@/data/siteConfig";
-import { Button } from "@/components/ui/button";
 
 const achievements = [
   {
@@ -26,10 +25,10 @@ const achievements = [
   },
 ];
 
-const FiverrSection = () => {
+const AchievementsSection = () => {
   return (
     <motion.section
-      id="fiverr"
+      id="achievements"
       className="section-padding relative"
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -45,7 +44,7 @@ const FiverrSection = () => {
           className="text-center mb-12"
         >
           <span className="inline-block text-primary font-semibold text-sm uppercase tracking-wider mb-4">
-            Fiverr Achievements
+            Achievements
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold">
             Trusted by <span className="gradient-text">Clients Worldwide</span>
@@ -68,9 +67,7 @@ const FiverrSection = () => {
               <div className="text-3xl sm:text-4xl font-bold gradient-text mb-2">
                 {item.value}
               </div>
-              <div className="text-sm text-muted-foreground">
-                {item.label}
-              </div>
+              <div className="text-sm text-muted-foreground">{item.label}</div>
             </motion.div>
           ))}
         </div>
@@ -80,25 +77,15 @@ const FiverrSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.5 }}
           viewport={{ once: true }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4"
+          className="flex items-center justify-center"
         >
-          <div className="flex items-center px-6 py-3 rounded-full border border-primary/30 bg-primary/5">
+          <div className="px-10 py-3 rounded-full border border-primary/30 bg-primary/5 text-center min-w-[260px]">
             <span className="text-primary font-semibold">Top Rated Seller</span>
           </div>
-          
-          <Button
-            asChild
-            size="lg"
-            className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 glow-sm transition-all hover:glow"
-          >
-            <a href={siteConfig.links.fiverr} target="_blank" rel="noopener noreferrer">
-              View Fiverr Profile
-            </a>
-          </Button>
         </motion.div>
       </div>
     </motion.section>
   );
 };
 
-export default FiverrSection;
+export default AchievementsSection;

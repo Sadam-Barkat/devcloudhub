@@ -22,6 +22,7 @@ export const techStack: TechItem[] = [
   
   // Automation
   { name: "n8n", category: "automation" },
+  { name: "Zapier", category: "automation" },
   
   // Databases
   { name: "MySQL", category: "database" },
@@ -32,7 +33,6 @@ export const techStack: TechItem[] = [
   { name: "JavaScript", category: "language" },
   { name: "TypeScript", category: "language" },
   { name: "Python", category: "language" },
-  { name: "C++", category: "language" },
 ];
 
 export const categoryLabels: Record<TechItem["category"], string> = {

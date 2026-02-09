@@ -118,7 +118,7 @@ const Navbar = () => {
               size="sm"
               className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"
             >
-              <a href={siteConfig.links.fiverr} target="_blank" rel="noopener noreferrer">
+              <a href={siteConfig.links.whatsapp} target="_blank" rel="noopener noreferrer">
                 Hire Me
               </a>
             </Button>
@@ -159,7 +159,7 @@ const Navbar = () => {
                 asChild
                 className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"
               >
-                <a href={siteConfig.links.fiverr} target="_blank" rel="noopener noreferrer">
+                <a href={siteConfig.links.whatsapp} target="_blank" rel="noopener noreferrer">
                   Hire Me
                 </a>
               </Button>

@@ -27,21 +27,6 @@ const socialLinks = [
     href: siteConfig.links.whatsapp,
     color: "hover:bg-[#25D366]/20 hover:border-[#25D366]/50",
   },
-  {
-    name: "Fiverr",
-    icon: () => (
-      <svg
-        className="w-7 h-7"
-        viewBox="0 0 24 24"
-        fill="currentColor"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path d="M16.25 16.25v-10h-1.5v-.5c0-1.5.5-2.5 2-2.5h1v-2h-1c-2.5 0-3.5 1.5-3.5 4v1h-1.5v2h1.5v8.5h-1.5v2h5v-2h-1.5zm-5.5 0v-8.5h-1.5v-2h1.5v-1c0-2.5 1-4 3.5-4h1v2h-1c-1.5 0-2 1-2 2.5v.5h2v2h-2v8.5h2v2h-5.5v-2h1.5zm-6 0v-8.5h1.5v8.5h1.5v2h-4.5v-2h1.5zm0-11a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5z" />
-      </svg>
-    ),
-    href: siteConfig.links.fiverr,
-    color: "hover:bg-[#1DBF73]/20 hover:border-[#1DBF73]/50",
-  },
 ];
 
 const SocialSection = () => {

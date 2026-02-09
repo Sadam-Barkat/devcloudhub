@@ -69,8 +69,8 @@ const HeroSection = () => {
                 size="lg"
                 className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 glow-sm transition-all hover:glow"
               >
-                <a href={siteConfig.links.fiverr} target="_blank" rel="noopener noreferrer">
-                  Hire Me on Fiverr
+                <a href={siteConfig.links.whatsapp} target="_blank" rel="noopener noreferrer">
+                  Hire Me
                 </a>
               </Button>
               
